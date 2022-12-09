@@ -18,19 +18,37 @@
         <span class="navbar-brand mb-0 h1">Weather Forecast</span>
       </div>
     </nav>
-    <div class="container-fluid">
+    <div class="container-fluid" style="margin-left: 20px; margin-right: 20px">
       <div class="row">
         <div class="col-md-3">
-          <form class="form">
-            <label for="inputPassword5" class="form-label"
-              >Search for a City</label
-            >
-            <input type="text" id="location" class="form-control" />
-          </form>
+          <div class="row">
+            <div class="col-md-12">
+              <form class="form">
+                <label class="form-label">Search for a City</label>
+                <input type="text" id="location" class="form-control" />
+              </form>
+            </div>
+          </div>
+          <div class="row" style="border-bottom: solid black">
+            <div class="col-md-12">
+              <div class="d-grid">
+                <button
+                  class="btn btn-primary"
+                  type="button"
+                  style="margin-top: 20px; margin-bottom: 20px"
+                >
+                  Button
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="col-md-9 flex-column d-flex justify-content-md-around">
           <div class="row">
             <div class="col-md-12">Today's forecast!</div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">6 Day Forecast:</div>
           </div>
           <div class="row">
             <div class="col-md-12">
