@@ -54,9 +54,9 @@ function getWeather(lat, lon) {
 
             cardEl[x].children[0].innerHTML = day; // Adds value to 'day' class's element
             cardEl[x].children[1].innerHTML = `<img src="http://openweathermap.org/img/wn/${icon}@2x.png">` // Adds value to 'icon' class's element
-            cardEl[x].children[2].innerHTML = temp // Adds value to 'temp' class's element
-            cardEl[x].children[3].innerHTML = wind // Adds value to 'wind' class's element
-            cardEl[x].children[4].innerHTML = humid // Adds value to 'humid' class's element
+            cardEl[x].children[2].innerHTML = `Temp: ${temp} °F` // Adds value to 'temp' class's element
+            cardEl[x].children[3].innerHTML = `Wind: ${wind} MPH` // Adds value to 'wind' class's element
+            cardEl[x].children[4].innerHTML = `Humidity: ${humid} %` // Adds value to 'humid' class's element
 
             x++ // Increments the date
         }   
