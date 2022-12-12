@@ -32,13 +32,13 @@ function getWeather(lat, lon) {
     .then(response => response.json())
     .then(data => {
         var date = data.list
-        console.log(date.length)
+        // console.log(date)
         for(i=0; i < date.length; i += 8){
-            console.log(date[i]);
-            console.log(date[i]);
-            console.log(date[i]);
-            console.log(date[i]);
-            console.log(date[i]);
+            var day = date[i].dt;
+            var weather = date[i].weather[0].icon;
+            var temp = date[i].main.temp;
+            var wind = date[i].wind.speed;
+            var humid = date[i].main.humidity;
         }
             
             // console.log(date.dt)
