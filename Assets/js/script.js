@@ -6,3 +6,6 @@
     // Temp
     // Wind
     // Humidity
+    var dateFormat = moment().format("M/D/YYYY") // Add UTC
+
+    
