@@ -5,3 +5,8 @@
 .days {
     border: solid black;
 }
+
+.weather {
+    align-self: center;
+
+}
