@@ -27,30 +27,37 @@ function getLocation (city) {
     
 }
 
+// Selects all weather cards
 var cardEl = document.querySelectorAll(".weather")
 
 function getWeather(lat, lon) {
+    // URL used to fetch weather for 5 days
     var weatherUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial&units=imperial`
 
     fetch (weatherUrl)
     .then(response => response.json())
     .then(data => {
+        // Captures Data for weather
         var date = data.list
-        var x = 0
-        // console.log(date)
-        for(i=0; i < date.length; i += 8){
-            var day = moment().add(x,`d`).format("M/D/YYYY")
-            var icon = date[i].weather[0].icon;
-            var temp = date[i].main.temp;
-            var wind = date[i].wind.speed;
-            var humid = date[i].main.humidity;
 
-            cardEl[x].children[0].innerHTML = day;
-            cardEl[x].children[1].innerHTML = icon
-            cardEl[x].children[2].innerHTML = temp
-            cardEl[x].children[3].innerHTML = wind
-            cardEl[x].children[4].innerHTML = humid
-            x++
+        // Keeps count of elements (dates)
+        var x = 0
+
+        // Loops through all the data, and adds values to weather card elemets
+        for(i=0; i < date.length; i += 8){
+            var day = moment().add(x,`d`).format("M/D/YYYY") // Today's date
+            var icon = date[i].weather[0].icon; // Weather Icon
+            var temp = date[i].main.temp; // Tempature
+            var wind = date[i].wind.speed; // Wind Speed
+            var humid = date[i].main.humidity;// Humidity
+
+            cardEl[x].children[0].innerHTML = day; // Adds value to 'day' class's element
+            cardEl[x].children[1].innerHTML = icon // Adds value to 'icon' class's element
+            cardEl[x].children[2].innerHTML = temp // Adds value to 'temp' class's element
+            cardEl[x].children[3].innerHTML = wind // Adds value to 'wind' class's element
+            cardEl[x].children[4].innerHTML = humid // Adds value to 'humid' class's element
+
+            x++ // Increments the date
         }   
         
         });
