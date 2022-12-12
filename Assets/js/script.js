@@ -18,12 +18,30 @@ function getLocation (city) {
     .then(data => {
         var lat = data[0].lat // retrieves latitude
         var lon = data[0].lon // retrieves longitude
+
+        getWeather(lat, lon);
     })
 
     
 }
 
 function getWeather(lat, lon) {
-    var weatherUrl = `api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial&cnt=7&units=imperial`
+    var weatherUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial&units=imperial`
 
+    fetch (weatherUrl)
+    .then(response => response.json())
+    .then(data => {
+        var date = data.list
+        console.log(date.length)
+        for(i=0; i < date.length; i += 8){
+            console.log(date[i]);
+            console.log(date[i]);
+            console.log(date[i]);
+            console.log(date[i]);
+            console.log(date[i]);
+        }
+            
+            // console.log(date.dt)
+            // console.log
+        });
 }
