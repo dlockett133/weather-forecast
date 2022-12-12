@@ -6,7 +6,9 @@
     // Temp
     // Wind
     // Humidity
-var dateFormat = moment().format("M/D/YYYY") // Add UTC
+// var dateFormat = moment().format("M/D/YYYY") // Add UTC
+
+var cardEl = document.querySelectorAll(".weather")
 
 const apiKey = `d08a795d9cdd7f108bc04f749cd0193c`
 
@@ -25,6 +27,8 @@ function getLocation (city) {
     
 }
 
+var cardEl = document.querySelectorAll(".weather")
+
 function getWeather(lat, lon) {
     var weatherUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial&units=imperial`
 
@@ -34,15 +38,21 @@ function getWeather(lat, lon) {
         var date = data.list
         // console.log(date)
         for(i=0; i < date.length; i += 8){
-            var day = date[i].dt;
-            var weather = date[i].weather[0].icon;
+            // var day = date[i].dt;
+            var icon = date[i].weather[0].icon;
             var temp = date[i].main.temp;
             var wind = date[i].wind.speed;
             var humid = date[i].main.humidity;
 
-            // for (x=0; x < 5; x++) {
-
-            // }
+            for (x=0; x < 5; x++) {
+                var day = moment().add(x,`d`).format("M/D/YYYY") // Add UTC
+                debugger
+                cardEl[x].children[0].innerHTML = day;
+                cardEl[x].children[1].innerHTML = icon
+                cardEl[x].children[2].innerHTML = temp
+                cardEl[x].children[3].innerHTML = wind
+                cardEl[x].children[4].innerHTML = humid
+            }
         }
             
             // console.log(date.dt)
