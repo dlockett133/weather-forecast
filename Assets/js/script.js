@@ -36,26 +36,22 @@ function getWeather(lat, lon) {
     .then(response => response.json())
     .then(data => {
         var date = data.list
+        var x = 0
         // console.log(date)
         for(i=0; i < date.length; i += 8){
-            // var day = date[i].dt;
+            var day = moment().add(x,`d`).format("M/D/YYYY")
             var icon = date[i].weather[0].icon;
             var temp = date[i].main.temp;
             var wind = date[i].wind.speed;
             var humid = date[i].main.humidity;
 
-            for (x=0; x < 5; x++) {
-                var day = moment().add(x,`d`).format("M/D/YYYY") // Add UTC
-                debugger
-                cardEl[x].children[0].innerHTML = day;
-                cardEl[x].children[1].innerHTML = icon
-                cardEl[x].children[2].innerHTML = temp
-                cardEl[x].children[3].innerHTML = wind
-                cardEl[x].children[4].innerHTML = humid
-            }
-        }
-            
-            // console.log(date.dt)
-            // console.log
+            cardEl[x].children[0].innerHTML = day;
+            cardEl[x].children[1].innerHTML = icon
+            cardEl[x].children[2].innerHTML = temp
+            cardEl[x].children[3].innerHTML = wind
+            cardEl[x].children[4].innerHTML = humid
+            x++
+        }   
+        
         });
 }
