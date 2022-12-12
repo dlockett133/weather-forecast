@@ -39,6 +39,10 @@ function getWeather(lat, lon) {
             var temp = date[i].main.temp;
             var wind = date[i].wind.speed;
             var humid = date[i].main.humidity;
+
+            // for (x=0; x < 5; x++) {
+
+            // }
         }
             
             // console.log(date.dt)
