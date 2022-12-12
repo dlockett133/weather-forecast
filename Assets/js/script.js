@@ -47,12 +47,13 @@ function getWeather(lat, lon) {
         for(i=0; i < date.length; i += 8){
             var day = moment().add(x,`d`).format("M/D/YYYY") // Today's date
             var icon = date[i].weather[0].icon; // Weather Icon
+            console.log(icon)
             var temp = date[i].main.temp; // Tempature
             var wind = date[i].wind.speed; // Wind Speed
             var humid = date[i].main.humidity;// Humidity
 
             cardEl[x].children[0].innerHTML = day; // Adds value to 'day' class's element
-            cardEl[x].children[1].innerHTML = icon // Adds value to 'icon' class's element
+            cardEl[x].children[1].innerHTML = `<img src="http://openweathermap.org/img/wn/${icon}@2x.png">` // Adds value to 'icon' class's element
             cardEl[x].children[2].innerHTML = temp // Adds value to 'temp' class's element
             cardEl[x].children[3].innerHTML = wind // Adds value to 'wind' class's element
             cardEl[x].children[4].innerHTML = humid // Adds value to 'humid' class's element
