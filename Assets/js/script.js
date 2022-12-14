@@ -67,26 +67,24 @@ function getWeather(lat, lon, location) {
             x++ // Increments the date
         }   
         document.querySelector(".icon").setAttribute("src", `http://openweathermap.org/img/wn/${icon}@2x.png`)
+        if (cities.includes(location) === false){
+            cities.push(location)
+            localStorage.setItem("locations", JSON.stringify(cities))
+        }
         });
 }
 
 $("form").submit(function (event){
     event.preventDefault();
     let city = $(this).find("#location").val();
-    if (cities.includes(city) === false){
-        cities.push(city)
-        localStorage.setItem("locations", JSON.stringify(cities))
-    }
+ 
     getLocation(city)
 })
 
 $("#search-btn").click(function (event){
     event.preventDefault();
     let city = $("#location").val();
-    if (cities.includes(city) === false){
-        cities.push(city)
-        localStorage.setItem("locations", JSON.stringify(cities))
-    }
+  
     getLocation(city)
     
 })
@@ -95,10 +93,10 @@ $("#searched-city").click(function (event){
     event.preventDefault();
     let city = $(this).html();
     console.log(city)
-    if (cities.includes(city) === false){
-        cities.push(city)
-        localStorage.setItem("locations", JSON.stringify(cities))
-    }
+    // if (cities.includes(city) === false){
+    //     cities.push(city)
+    //     localStorage.setItem("locations", JSON.stringify(cities))
+    // }
     getLocation(city)
     
 })
