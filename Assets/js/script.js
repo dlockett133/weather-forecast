@@ -12,8 +12,8 @@ var cardEl = document.querySelectorAll(".weather")
 
 const apiKey = `d08a795d9cdd7f108bc04f749cd0193c`
 
-function getLocation (city) {
-    var geocodeUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}&limit=1`
+function getLocation (location) {
+    var geocodeUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=${apiKey}&limit=1`
 
     fetch (geocodeUrl)
     .then(response => response.json())
@@ -68,15 +68,15 @@ function getWeather(lat, lon) {
 // var location = $("#location");
 
 $("form").submit(function (event){
-    let key = $(this).find("#location").val();
-    console.log(key)
+    let city = $(this).find("#location").val();
+    getLocation(city)
     event.preventDefault();
     
 })
 
 $("button").click(function (event){
-    let key = $("#location").val();
-    console.log(key);
+    let city = $("#location").val();
+    console.log(city);
     event.preventDefault();
     
 })
