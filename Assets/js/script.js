@@ -48,8 +48,8 @@ function getWeather(lat, lon, location) {
         var x = 0
         // debugger
         var cityEl = document.querySelector(".city")
-        cityEl.innerHTML = location
-        cityEl.setAttribute("style", " position: absolute; bottom: 30%; left: 44%; font-family: 'Oswald', sans-serif; font-size: 40px; ")
+        cityEl.innerHTML = location.toUpperCase()
+        cityEl.setAttribute("style", " position: absolute; bottom: 30%; left: 42%; font-family: 'Oswald', sans-serif; font-size: 40px; ")
         // Loops through all the data, and adds values to weather card elemets
         for(i=0; i < date.length; i += 8){
             cardEl[x].setAttribute(`class`, `text-center align-self-center mt-3 mb-3`)
