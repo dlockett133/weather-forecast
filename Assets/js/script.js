@@ -1,3 +1,15 @@
+// Parses through local storage to apply buttons
+let cities = JSON.parse(localStorage.getItem("locations"));
+if (!cities) {
+    cities = [];
+} else {
+    for (let i = 0; i < cities.length; i++){
+        let searchedCityEl = document.createElement("button")
+        searchedCityEl.setAttribute("class", "list-group-item list-group-item-action");
+        searchedCityEl.innerText = cities[i];
+        document.querySelector(".history").appendChild(searchedCityEl);
+    }
+}
 
 var cardEl = document.querySelectorAll(".weather")
 
@@ -57,25 +69,6 @@ function getWeather(lat, lon, location) {
         document.querySelector(".icon").setAttribute("src", `http://openweathermap.org/img/wn/${icon}@2x.png`)
         });
 }
-
-let historyEl = document.querySelector(".history")
-
-// Parses through local storage to apply buttons
-let cities = JSON.parse(localStorage.getItem("locations"));
-if (!cities) {
-    cities = [];
-} else {
-    for (let i = 0; i < cities.length; i++){
-        historyEl.innerHTML += `
-        <button 
-        id="searched-city"
-        class="list-group-item list-group-item-action">
-        ${cities[i]}
-        </button>` 
-    }
-}
-
-
 
 $("form").submit(function (event){
     event.preventDefault();
