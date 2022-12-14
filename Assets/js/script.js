@@ -52,7 +52,7 @@ function getWeather(lat, lon, location) {
 
             x++ // Increments the date
         }   
-        
+        document.querySelector(".icon").setAttribute("src", `http://openweathermap.org/img/wn/${icon}@2x.png`)
         });
 }
 
