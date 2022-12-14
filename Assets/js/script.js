@@ -5,7 +5,7 @@ if (!cities) {
 } else {
     for (let i = 0; i < cities.length; i++){
         let searchedCityEl = document.createElement("button")
-        searchedCityEl.setAttribute("class", "searched-city list-group-item list-group-item-action text-center shadow-lg");
+        searchedCityEl.setAttribute("class", "searched-city list-group-item list-group-item-action text-center border border-info border-2 shadow-lg");
         searchedCityEl.setAttribute("style", "font-family: 'Oswald', sans-serif;font-size: 20px; font-weight: 300")
         searchedCityEl.innerText = cities[i];
         document.querySelector(".history").appendChild(searchedCityEl);
