@@ -1,4 +1,4 @@
-const cities = [];
+
 var cardEl = document.querySelectorAll(".weather")
 
 const apiKey = `d08a795d9cdd7f108bc04f749cd0193c`
@@ -58,7 +58,15 @@ function getWeather(lat, lon, location) {
         });
 }
 
-// var location = $("#location");
+// Parses through local storage to apply buttons
+let cities = JSON.parse(localStorage.getItem("locations"));
+if (cities === false) {
+    cities = [];
+} else {
+    for (let i = 0; i < cities.length; i++){
+        console.log(cities[i])
+    }
+}
 
 $("form").submit(function (event){
     event.preventDefault();
