@@ -1,13 +1,4 @@
-// Grab first API to get location cordinates (lon, latitiude)
-
-// Grad second API to get weather for 5 days
-    // Date (moment.js UTC conversion)
-    // Icon
-    // Temp
-    // Wind
-    // Humidity
-// var dateFormat = moment().format("M/D/YYYY") // Add UTC
-
+const cities = [];
 var cardEl = document.querySelectorAll(".weather")
 
 const apiKey = `d08a795d9cdd7f108bc04f749cd0193c`
@@ -68,7 +59,8 @@ function getWeather(lat, lon) {
 
 $("form").submit(function (event){
     let city = $(this).find("#location").val();
-    localStorage.setItem("locations", city)
+    cities.push(city)
+    localStorage.setItem("locations", JSON.stringify(cities))
     getLocation(city)
     event.preventDefault();
     
@@ -76,7 +68,8 @@ $("form").submit(function (event){
 
 $("button").click(function (event){
     let city = $("#location").val();
-    localStorage.setItem("locations", city)
+    cities.push(city)
+    localStorage.setItem("locations", JSON.stringify(cities))
     getLocation(city)
     event.preventDefault();
     
