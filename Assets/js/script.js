@@ -58,13 +58,20 @@ function getWeather(lat, lon, location) {
         });
 }
 
+let historyEl = document.querySelector(".history")
+
 // Parses through local storage to apply buttons
 let cities = JSON.parse(localStorage.getItem("locations"));
-if (cities === false) {
+if (!cities) {
     cities = [];
 } else {
     for (let i = 0; i < cities.length; i++){
-        console.log(cities[i])
+        historyEl.innerHTML += `
+        <button 
+        id="searched-city"
+        class="list-group-item list-group-item-action">
+        ${cities[i]}
+        </button>` 
     }
 }
 
