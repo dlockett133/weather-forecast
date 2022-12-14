@@ -69,11 +69,6 @@ if (cities === false) {
 }
 
 
-// for (i = 0; i < allCities.length; i++) {
-//   var historyEl = document.createElement("button");
-//   historyEl.setAttribute("class", "btn btn-secondary");
-//   historyEl.innerText = allCities[i];
-//   document.querySelector(".history").appendChild(historyEl);
 
 $("form").submit(function (event){
     event.preventDefault();
@@ -85,9 +80,21 @@ $("form").submit(function (event){
     getLocation(city)
 })
 
-$("button").click(function (event){
+$("#search-btn").click(function (event){
     event.preventDefault();
     let city = $("#location").val();
+    if (cities.includes(city) === false){
+        cities.push(city)
+        localStorage.setItem("locations", JSON.stringify(cities))
+    }
+    getLocation(city)
+    
+})
+
+$("#searched-city").click(function (event){
+    event.preventDefault();
+    let city = $(this).html();
+    console.log(city)
     if (cities.includes(city) === false){
         cities.push(city)
         localStorage.setItem("locations", JSON.stringify(cities))
