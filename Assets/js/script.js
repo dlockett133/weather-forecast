@@ -4,7 +4,7 @@ var cardEl = document.querySelectorAll(".weather")
 const apiKey = `d08a795d9cdd7f108bc04f749cd0193c`
 
 function getLocation (location) {
-    var geocodeUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=${apiKey}&limit=1`
+    var geocodeUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=${apiKey}&limit=1`
 
     fetch (geocodeUrl)
     .then(response => response.json())
@@ -23,7 +23,7 @@ var cardEl = document.querySelectorAll(".weather")
 
 function getWeather(lat, lon, location) {
     // URL used to fetch weather for 5 days
-    var weatherUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial&units=imperial`
+    var weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial&units=imperial`
 
     fetch (weatherUrl)
     .then(response => response.json())
