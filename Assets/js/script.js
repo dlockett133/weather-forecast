@@ -64,3 +64,19 @@ function getWeather(lat, lon) {
         
         });
 }
+
+// var location = $("#location");
+
+$("form").submit(function (event){
+    let key = $(this).find("#location").val();
+    console.log(key)
+    event.preventDefault();
+    
+})
+
+$("button").click(function (event){
+    let key = $("#location").val();
+    console.log(key);
+    event.preventDefault();
+    
+})
