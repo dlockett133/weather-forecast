@@ -33,7 +33,7 @@ function getWeather(lat, lon, location) {
 
         // Keeps count of elements (dates)
         var x = 0
-        debugger
+        // debugger
         document.querySelector(".city").innerHTML = location
         // Loops through all the data, and adds values to weather card elemets
         for(i=0; i < date.length; i += 8){
