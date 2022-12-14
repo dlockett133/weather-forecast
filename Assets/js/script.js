@@ -39,7 +39,7 @@ function getWeather(lat, lon, location) {
         cityEl.setAttribute("style", " position: absolute; bottom: 30%; left: 44%")
         // Loops through all the data, and adds values to weather card elemets
         for(i=0; i < date.length; i += 8){
-            cardEl[x].setAttribute(`class`, `align-self-center`)
+            cardEl[x].setAttribute(`class`, `align-self-center mt-3 mb-3`)
             var day = moment().add(x,`d`).format("M/D/YYYY") // Today's date
             var icon = date[i].weather[0].icon; // Weather Icon
             var temp = date[i].main.temp; // Tempature
