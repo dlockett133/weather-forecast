@@ -5,7 +5,8 @@ if (!cities) {
 } else {
     for (let i = 0; i < cities.length; i++){
         let searchedCityEl = document.createElement("button")
-        searchedCityEl.setAttribute("class", "list-group-item list-group-item-action searched-city shadow-lg");
+        searchedCityEl.setAttribute("class", "searched-city list-group-item list-group-item-action text-center shadow-lg");
+        searchedCityEl.setAttribute("style", "font-family: 'Oswald', sans-serif;font-size: 20px; font-weight: 300")
         searchedCityEl.innerText = cities[i];
         document.querySelector(".history").appendChild(searchedCityEl);
     }
@@ -48,10 +49,11 @@ function getWeather(lat, lon, location) {
         // debugger
         var cityEl = document.querySelector(".city")
         cityEl.innerHTML = location
-        cityEl.setAttribute("style", " position: absolute; bottom: 30%; left: 44%; font-family: 'Oswald', sans-serif; font-size: 40px;")
+        cityEl.setAttribute("style", " position: absolute; bottom: 30%; left: 44%; font-family: 'Oswald', sans-serif; font-size: 40px; ")
         // Loops through all the data, and adds values to weather card elemets
         for(i=0; i < date.length; i += 8){
             cardEl[x].setAttribute(`class`, `text-center align-self-center mt-3 mb-3`)
+            cardEl[x].setAttribute("style", "font-family: 'Oswald', sans-serif; font-weight: 300")
             var day = moment().add(x,`d`).format("M/D/YYYY") // Today's date
             var icon = date[i].weather[0].icon; // Weather Icon
             var temp = date[i].main.temp; // Tempature
@@ -59,7 +61,7 @@ function getWeather(lat, lon, location) {
             var humid = date[i].main.humidity;// Humidity
 
             cardEl[x].children[0].innerHTML = day; // Adds value to 'day' class's element
-            cardEl[x].children[0].setAttribute("style", "font-family: 'Oswald', sans-serif")
+            cardEl[x].children[0].setAttribute("style", "font-family: 'Oswald', sans-serif;")
             cardEl[x].children[1].innerHTML = `<img src="http://openweathermap.org/img/wn/${icon}@2x.png">` // Adds value to 'icon' class's element
             cardEl[x].children[2].innerHTML = `Temp: ${temp} °F` // Adds value to 'temp' class's element
             cardEl[x].children[3].innerHTML = `Wind: ${wind} MPH` // Adds value to 'wind' class's element
