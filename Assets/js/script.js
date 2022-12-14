@@ -76,7 +76,7 @@ $("form").submit(function (event){
 
 $("button").click(function (event){
     let city = $("#location").val();
-    console.log(city);
+    getLocation(city)
     event.preventDefault();
     
 })
