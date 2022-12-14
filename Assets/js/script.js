@@ -14,9 +14,9 @@ function getLocation (location) {
         let location = data[0].name
         getWeather(lat, lon, location);
     })
-
-    
 }
+
+getLocation("Atlanta");
 
 // Selects all weather cards
 var cardEl = document.querySelectorAll(".weather")
@@ -34,7 +34,9 @@ function getWeather(lat, lon, location) {
         // Keeps count of elements (dates)
         var x = 0
         // debugger
-        document.querySelector(".city").innerHTML = location
+        var cityEl = document.querySelector(".city")
+        cityEl.innerHTML = location
+        cityEl.setAttribute("style", " position: absolute; bottom: 30%; left: 44%")
         // Loops through all the data, and adds values to weather card elemets
         for(i=0; i < date.length; i += 8){
             cardEl[x].setAttribute(`class`, `align-self-center`)

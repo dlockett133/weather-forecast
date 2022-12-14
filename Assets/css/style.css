@@ -12,5 +12,8 @@
 }
 
 .city {
-text-align: center;
+    text-align: center;
+    position: absolute;
+    bottom: 30%;
+    left: 44%
 }
