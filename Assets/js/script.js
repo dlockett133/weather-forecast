@@ -68,8 +68,14 @@ function getWeather(lat, lon, location) {
         }   
         document.querySelector(".icon").setAttribute("src", `http://openweathermap.org/img/wn/${icon}@2x.png`)
         if (cities.includes(location) === false){
-            cities.push(location)
-            localStorage.setItem("locations", JSON.stringify(cities))
+            if (cities.length < 6){
+                cities.unshift(location)
+                localStorage.setItem("locations", JSON.stringify(cities))
+            } else {
+                cities.pop()
+                cities.unshift(location)
+                localStorage.setItem("locations", JSON.stringify(cities))
+            }
         }
         });
 }
