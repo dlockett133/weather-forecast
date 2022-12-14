@@ -11,8 +11,8 @@ function getLocation (location) {
     .then(data => {
         var lat = data[0].lat // retrieves latitude
         var lon = data[0].lon // retrieves longitude
-
-        getWeather(lat, lon);
+        let location = data[0].name
+        getWeather(lat, lon, location);
     })
 
     
@@ -21,7 +21,7 @@ function getLocation (location) {
 // Selects all weather cards
 var cardEl = document.querySelectorAll(".weather")
 
-function getWeather(lat, lon) {
+function getWeather(lat, lon, location) {
     // URL used to fetch weather for 5 days
     var weatherUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial&units=imperial`
 
@@ -33,7 +33,8 @@ function getWeather(lat, lon) {
 
         // Keeps count of elements (dates)
         var x = 0
-
+        debugger
+        document.querySelector(".city").innerHTML = location
         // Loops through all the data, and adds values to weather card elemets
         for(i=0; i < date.length; i += 8){
             cardEl[x].setAttribute(`class`, `align-self-center`)
