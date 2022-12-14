@@ -48,7 +48,6 @@ function getWeather(lat, lon) {
             cardEl[x].setAttribute(`class`, `align-self-center`)
             var day = moment().add(x,`d`).format("M/D/YYYY") // Today's date
             var icon = date[i].weather[0].icon; // Weather Icon
-            console.log(icon)
             var temp = date[i].main.temp; // Tempature
             var wind = date[i].wind.speed; // Wind Speed
             var humid = date[i].main.humidity;// Humidity
@@ -69,6 +68,7 @@ function getWeather(lat, lon) {
 
 $("form").submit(function (event){
     let city = $(this).find("#location").val();
+    localStorage.setItem("locations", city)
     getLocation(city)
     event.preventDefault();
     
@@ -76,6 +76,7 @@ $("form").submit(function (event){
 
 $("button").click(function (event){
     let city = $("#location").val();
+    localStorage.setItem("locations", city)
     getLocation(city)
     event.preventDefault();
     
