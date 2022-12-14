@@ -58,19 +58,22 @@ function getWeather(lat, lon) {
 // var location = $("#location");
 
 $("form").submit(function (event){
-    let city = $(this).find("#location").val();
-    cities.push(city)
-    localStorage.setItem("locations", JSON.stringify(cities))
-    getLocation(city)
     event.preventDefault();
-    
+    let city = $(this).find("#location").val();
+    if (cities.includes(city) === false){
+        cities.push(city)
+        localStorage.setItem("locations", JSON.stringify(cities))
+    }
+    getLocation(city)
 })
 
 $("button").click(function (event){
-    let city = $("#location").val();
-    cities.push(city)
-    localStorage.setItem("locations", JSON.stringify(cities))
-    getLocation(city)
     event.preventDefault();
+    let city = $("#location").val();
+    if (cities.includes(city) === false){
+        cities.push(city)
+        localStorage.setItem("locations", JSON.stringify(cities))
+    }
+    getLocation(city)
     
 })
