@@ -5,7 +5,7 @@ if (!cities) {
 } else {
     for (let i = 0; i < cities.length; i++){
         let searchedCityEl = document.createElement("button")
-        searchedCityEl.setAttribute("class", "list-group-item list-group-item-action searched-city");
+        searchedCityEl.setAttribute("class", "list-group-item list-group-item-action searched-city shadow-lg");
         searchedCityEl.innerText = cities[i];
         document.querySelector(".history").appendChild(searchedCityEl);
     }
