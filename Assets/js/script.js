@@ -74,10 +74,22 @@ function getWeather(lat, lon, location) {
             if (cities.length < 6){
                 cities.unshift(location)
                 localStorage.setItem("locations", JSON.stringify(cities))
+                let searchedCityEl = document.createElement("button")
+                searchedCityEl.setAttribute("class", "searched-city list-group-item list-group-item-action text-center border border-info border-2 shadow");
+                searchedCityEl.setAttribute("style", "font-family: 'Oswald', sans-serif;font-size: 20px; font-weight: 300")
+                searchedCityEl.innerText = location;
+                document.querySelector(".history").prepend(searchedCityEl);
             } else {
                 cities.pop()
                 cities.unshift(location)
                 localStorage.setItem("locations", JSON.stringify(cities))
+                let buttonEl = document.querySelectorAll(".searched-city")
+                buttonEl[5].remove();
+                let searchedCityEl = document.createElement("button")
+                searchedCityEl.setAttribute("class", "searched-city list-group-item list-group-item-action text-center border border-info border-2 shadow");
+                searchedCityEl.setAttribute("style", "font-family: 'Oswald', sans-serif;font-size: 20px; font-weight: 300")
+                searchedCityEl.innerText = location;
+                document.querySelector(".history").prepend(searchedCityEl);
             }
         }
         });
