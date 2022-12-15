@@ -99,14 +99,24 @@ $("form").submit(function (event){
     event.preventDefault();
     let city = $(this).find("#location").val();
  
-    getLocation(city)
+    if (city.length === 0) {
+        alert("Submit valid location")
+    }else {
+        
+        getLocation(city)
+    }
 })
 
 $("#search-btn").click(function (event){
     event.preventDefault();
     let city = $("#location").val();
   
-    getLocation(city)
+    if (city.length === 0) {
+        alert("Submit valid location")
+    }else {
+
+        getLocation(city)
+    }
     
 })
 
