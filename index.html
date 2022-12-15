@@ -10,12 +10,21 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
-    <title>🌤️ Weather Forcast 🌤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@300;500&family=Rubik+Puddles&display=swap"
+      rel="stylesheet"
+    />
+    <title>🌤️ Weather Forecast 🌤️</title>
   </head>
   <body class="bg-info bg-opacity-25">
-    <nav class="navbar bg-light">
+    <nav
+      class="navbar navbar-expand-lg pb-0"
+      style="font-family: 'Rubik Puddles', cursive"
+    >
       <div class="container">
-        <span class="navbar-brand mb-0 h1">Weather Forecast</span>
+        <span class="navbar-brand mb-0 h1 fs-3">Weather Forecast</span>
       </div>
     </nav>
     <div class="container">
@@ -24,12 +33,12 @@
           <div class="row">
             <div class="col-md-12">
               <form class="form">
-                <label class="form-label">Search for a City</label>
+                <br />
                 <input
                   type="text"
                   id="location"
-                  class="form-control"
-                  placeholder="City name"
+                  class="form-control border border-info border-2 shadow-lg"
+                  placeholder="Search Location"
                 />
               </form>
             </div>
@@ -38,7 +47,8 @@
             <div class="col-md-12">
               <div class="d-grid">
                 <button
-                  class="btn btn-primary"
+                  class="btn btn-primary shadow-lg"
+                  id="search-btn"
                   type="button"
                   style="margin-top: 20px; margin-bottom: 20px"
                 >
@@ -47,22 +57,27 @@
               </div>
             </div>
           </div>
+          <div class="row">
+            <div class="col-md-12 mt-2">
+              <div class="list-group gap-1 history"></div>
+            </div>
+          </div>
         </div>
         <div class="col-md-9 flex-column d-flex justify-content-md-around">
-          <div class="row gap-2">
+          <div class="row gap-3 mt-4">
             <div
-              class="col-md-12 align-items-center bg-light border border-info border-2 rounded text-center position-relative"
+              class="col-md-12 align-items-center bg-light border border-info border-2 rounded text-center position-relative shadow-lg"
             >
               <marquee behavior="scroll" direction="left">
                 <img class="icon" src="" alt="" />
               </marquee>
-              <h4 class="city">location</h4>
+              <h4 class="city"></h4>
             </div>
             <div
-              class="col-md-12 bg-light border border-info border-2 rounded card"
+              class="col-md-12 bg-light border border-info border-2 rounded card shadow-lg"
             >
               <div class="weather">
-                <h5 class="card-title date"></h5>
+                <h5 class="card-title date fs-1"></h5>
                 <p class="card-text"></p>
                 <p class="card-text temp"></p>
                 <p class="card-text wind"></p>
@@ -71,39 +86,17 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 fs-4" style="font-family: 'Lobster', cursive">
               <marquee behavior="scroll" direction="right"
-                >5 Day Forecast</marquee
+                >5 Day Weather Forecast</marquee
               >
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-3">
             <div class="col-md-12">
               <div class="row gap-2">
                 <div
-                  class="col-md bg-light border border-info border-2 rounded card"
-                >
-                  <div class="weather">
-                    <h5 class="card-title date">Date</h5>
-                    <p class="card-text icon">Icon:</p>
-                    <p class="card-text temp">Temp:</p>
-                    <p class="card-text wind">Wind:</p>
-                    <p class="card-text humid">Humidity:</p>
-                  </div>
-                </div>
-                <div
-                  class="col-md bg-light border border-info border-2 rounded card"
-                >
-                  <div class="weather">
-                    <h5 class="card-title date"></h5>
-                    <p class="card-text icon"></p>
-                    <p class="card-text temo"></p>
-                    <p class="card-text wind"></p>
-                    <p class="card-text humid"></p>
-                  </div>
-                </div>
-                <div
-                  class="col-md bg-light border border-info border-2 rounded card"
+                  class="col-md bg-light border border-info border-2 rounded card shadow-lg"
                 >
                   <div class="weather">
                     <h5 class="card-title date"></h5>
@@ -114,7 +107,29 @@
                   </div>
                 </div>
                 <div
-                  class="col-md bg-light border border-info border-2 rounded card"
+                  class="col-md bg-light border border-info border-2 rounded card shadow-lg"
+                >
+                  <div class="weather">
+                    <h5 class="card-title date"></h5>
+                    <p class="card-text icon"></p>
+                    <p class="card-text temo"></p>
+                    <p class="card-text wind"></p>
+                    <p class="card-text humid"></p>
+                  </div>
+                </div>
+                <div
+                  class="col-md bg-light border border-info border-2 rounded card shadow-lg"
+                >
+                  <div class="weather">
+                    <h5 class="card-title date"></h5>
+                    <p class="card-text icon"></p>
+                    <p class="card-text temp"></p>
+                    <p class="card-text wind"></p>
+                    <p class="card-text humid"></p>
+                  </div>
+                </div>
+                <div
+                  class="col-md bg-light border border-info border-2 rounded card shadow-lg"
                 >
                   <div class="weather">
                     <h5 class="card-title date"></h5>
