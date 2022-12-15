@@ -129,7 +129,7 @@ $("form").submit(function (event){
     event.preventDefault();
     // Retrieves value from input
     let city = $(this).find("#location").val();
- 
+    // Checks if input from search bar is empty
     if (city.length === 0) {
         alert("Submit valid location")
     }else {
@@ -143,22 +143,26 @@ $("#search-btn").click(function (event){
     event.preventDefault();
     // Retrieves value from input
     let city = $("#location").val();
-  
+    // Checks if input from search bar is empty
     if (city.length === 0) {
         alert("Submit valid location")
     }else {
         // Inserts value from input as an argument to invoke the function
         getLocation(city)
-    }
-    
+    }  
 })
 
+// Selects container for search city buttons
+let historyEl = document.querySelector(".history")
+
 // Creates event listener for searched location buttons
-$(".searched-city").click(function (event){
-    event.preventDefault();
-    // Retrieves value from button
-    let city = $(this).html();
-    // Inserts value from input as an argument to invoke the function
-    getLocation(city)
-    
-})
+historyEl.addEventListener('click', function (event) {
+    // Only listen for elements that have a 'search-city' class
+    if (event.target.classList.contains('searched-city')) {
+        // Retrieves value from button
+        let city = (event.target.innerHTML);
+
+      // Inserts value from input as an argument to invoke the function
+      getLocation(city)
+    }
+  });
